@@ -26,7 +26,7 @@ namespace TaskManager
         {
             InitializeComponent();
             var processes = Process.GetProcesses();
-            foreach(var a in processes.OrderBy(x => x.ProcessName))
+            foreach (var a in processes.OrderBy(x => x.ProcessName))
             {
                 listBoxProcesses.Items.Add($"{a.ProcessName}");
             }
@@ -34,12 +34,12 @@ namespace TaskManager
 
         private void Killing(object sender, RoutedEventArgs e)
         {
-            process.Kill();
+            Process.GetProcesses()[listBoxProcesses.SelectedIndex].Kill();
         }
 
         private void Select(object sender, MouseButtonEventArgs e)
         {
-            var col = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBox;
+            var res = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBox;
         }
     }
 }

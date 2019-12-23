@@ -14,10 +14,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="113*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBoxProcesses" Grid.Row="1">
-            <ListBoxItem x:Name="listBoxItem" PreviewMouseDown="Select" Content="{Binding Killing}"/>
-            <Button x:Name="buttonKill" Content="Снять задчу" Margin="701,0,0,0" Click="Killing"/>
-        </ListBox>
-
+        <ListView x:Name="listBoxProcesses" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="TaskManagerList" Width="100" DisplayMemberBinding="{Binding Process}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="buttonKill" Content="Снять задчу" Margin="701,0,0,0" Click="Killing" Height="30" Width="88"/>
     </Grid>
 </Window>
